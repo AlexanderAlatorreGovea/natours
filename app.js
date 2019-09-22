@@ -8,7 +8,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-//const compression = require('compression');
+const compression = require('compression');
 //const cors = require('cors');
 
 const AppError = require('./utils/appError');
@@ -79,7 +79,7 @@ app.use(
 //static allows you to got to for example overview.html on the browser
 //for example you can access http://localhost:4000/img/pin.png
 //serving static files
-
+app.use(compression());
 //test middleware
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
